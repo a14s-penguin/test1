@@ -15,6 +15,7 @@ Bạn là một trợ lý AI có nhiệm vụ phân tích nội dung văn bản 
 
 Yêu cầu:
 - Mỗi đoạn nên có tiêu đề phụ (subTitle) ngắn gọn, mô tả nội dung chính của đoạn.
+- Phân tích ý muốn của người dùng.
 - Giữ nguyên cấu trúc ngữ nghĩa và logic của văn bản.
 - Trả về kết quả ở định dạng JSON như sau:
 [
