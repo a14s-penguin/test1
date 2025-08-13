@@ -1,7 +1,7 @@
 // src/lib/gemini.ts
 
 const API_KEY = process.env.GEMINI_API_KEY;
-const API_URL = 'https://gemini.googleapis.com/v1/chat:complete'; // Thay bằng đúng endpoint Gemini
+const API_URL = 'https://gemini.googleapis.com/v1/chat:complete';
 
 function sanitizeTextForEmbedding(text: string): string {
     return text.trim().replace(/\s+/g, ' ');
@@ -25,14 +25,11 @@ export async function getEmbedding(text: string): Promise<number[]> {
     });
 
     const resText = await response.text();
-    // console.log('API response text:', resText);
 
     try {
         const data = JSON.parse(resText);
-        // console.log("data", data?.embedding.values);
         return data?.embedding?.values ?? [];
     } catch (error) {
-        console.error('❌ Lỗi parse JSON:', error);
         throw new Error('API response không phải JSON hợp lệ');
     }
 }
