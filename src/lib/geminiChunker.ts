@@ -31,7 +31,7 @@ ${content}
     const result = await model.generateContent(prompt);
     const raw = result.response.text();
 
-    // Lọc chuỗi JSON ra khỏi kết quả
+    // filter Json
     const jsonStart = raw.indexOf('[');
     const jsonEnd = raw.lastIndexOf(']');
     if (jsonStart === -1 || jsonEnd === -1) {
