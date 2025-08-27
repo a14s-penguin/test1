@@ -92,26 +92,7 @@ export default function KnowledgeClient() {
                 setMessage({ type: 'error', text: 'Không thể kết nối đến máy chủ' });
             }
         } else {
-            setTitle('nerver use');
-            console.log('no action')
-        }
-        setShowModal(false);
-        fetchKnowledge();
-        setLoading(false);
-    };
-
-    useEffect(() => {
-        fetchKnowledge()
-    }, [])
-
-    return (
-        <div>
-            <h1 className="text-2xl font-bold mb-4">Danh sách Kiến thức</h1>
-            <Button type="primary" onClick={() => setShowModal(true)}>Thêm Kiến thức</Button>
-
-            <Table dataSource={knowledge} loading={loading} rowKey="id">
-                {/* <Table.Column title="ID" dataIndex="id" key="id" /> */}
-                <Table.Column title="Tiêu đề phụ" dataIndex="subTitle" key="subTitle" />
+     key="subTitle" />
                 <Table.Column title="Nội dung" dataIndex="content" key="content" />
                 <Table.Column
                     title="Hành động"
