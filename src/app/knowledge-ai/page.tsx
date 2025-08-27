@@ -12,7 +12,6 @@ type Knowledge = {
 }
 
 export default function KnowledgeClient() {
-    const [knowledge, setKnowledge] = useState<Knowledge[]>([])
     const [loading, setLoading] = useState(true)
     const [showModal, setShowModal] = useState(false)
 
