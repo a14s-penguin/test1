@@ -34,7 +34,7 @@ export async function GetEmbedding(text: string): Promise<number[]> {
     }
 }
 
-export async function generateResponse(prompt: string) {
+export async function generate_response(prompt: string) {
     const response = await fetch(API_URL, {
         method: 'POST',
         headers: {
