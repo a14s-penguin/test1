@@ -7,7 +7,7 @@ function sanitizeTextForEmbedding(text: string): string {
     return text.trim().replace(/\s+/g, ' ');
 }
 
-export async function getEmbedding(text: string): Promise<number[]> {
+export async function GetEmbedding(text: string): Promise<number[]> {
     const sanitized = sanitizeTextForEmbedding(text);
 
     const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/embedding-001:embedContent', {
