@@ -1,5 +1,5 @@
 import { prisma } from '@/lib/prisma';
-import { getEmbedding, generateResponse } from '@/lib/gemini';
+import { GetEmbedding, generateResponse } from '@/lib/gemini';
 import { cosineSimilarity } from '@/lib/similarity';
 import { saveMessageWithEmbedding } from '@/lib/saveMessage';
 
