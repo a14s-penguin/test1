@@ -1,7 +1,7 @@
 import { prisma } from '@/lib/prisma';
 import OpenAI from 'openai';
 import { NextResponse } from 'next/server';
-import { getEmbedding } from '@/lib/gemini';
+import { GetEmbedding } from '@/lib/gemini';
 import { cosineSimilarity } from '@/lib/similarity';
 
 const openai = new OpenAI({
@@ -44,7 +44,7 @@ export async function POST(req: Request) {
     try {
         const lastUserMessage = messages[messages.length - 1];
         const userText = lastUserMessage.content;
-        const userEmbedding = await getEmbedding(userText);
+        const userEmbedding = await GetEmbedding(userText);
 
         // 🧠 STEP 0 — Intent Detection (ví dụ: nghỉ phép)
         const intentPrompt = `
@@ -392,7 +392,7 @@ export async function POST(req: Request) {
             });
         }
 
-        const botEmbedding = await getEmbedding(reply).catch(() => []);
+        const botEmbedding = await GetEmbedding(reply).catch(() => []);
 
         await prisma.message.createMany({
             data: [
