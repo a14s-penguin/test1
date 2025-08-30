@@ -1,5 +1,5 @@
 import { prisma } from '@/lib/prisma';
-import { getEmbedding, generateResponse } from '@/lib/gemini';
+import { GetEmbedding, generateResponse } from '@/lib/gemini';
 import { cosineSimilarity } from '@/lib/similarity';
 import { saveMessageWithEmbedding } from '@/lib/saveMessage';
 
@@ -7,7 +7,7 @@ export async function POST(req: Request) {
     console.log('🟢 POST /api/chat được gọi');
     const { message } = await req.json();
 
-    const embedding = await getEmbedding(message);
+    const embedding = await GetEmbedding(message);
 
     // Tìm các message có embedding gần nhất
     const pastMessages = await prisma.message.findMany({

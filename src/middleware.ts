@@ -7,13 +7,19 @@ export function MIDDLEWARE(req: NextRequest) {
 
     if (!token) {
         return NextResponse.redirect(new URL('/login', req.url))
+    }else {
+        console.log("okokok");
     }
 
     if (url.pathname === '/user') {
         return NextResponse.next()
     }
 
-    return NextResponse.redirect(new URL('/user', req.url))
+    if (url.pathname === '/admin') {
+        return NextResponse.next()
+    }
+
+    return NextResponse.redirect(new URL('/admin', req.url))
 }
 
 export const config = {
